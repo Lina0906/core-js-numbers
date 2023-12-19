@@ -201,8 +201,11 @@ function roundToPowerOfTen(num, pow) {
  *   16 => false
  *   17 => true
  */
-function isPrime(/* n */) {
-  throw new Error('Not implemented');
+function isPrime(n) {
+  for (let i = 2; i < n; i += 1) {
+    if (n % i === 0) return false;
+  }
+  return true;
 }
 
 /**
@@ -265,7 +268,7 @@ function getFibonacciNumber(/* index */) {
   // if (index < 2) {
   //   result = fibonacciArray[index];
   // } else {
-  //   for (let i = 2; i <= index; i + 1) {
+  //   for (let i = 2; i <= index; i += 1) {
   //     const newFibonacciNumber = fibonacciArray[i - 2] + fibonacciArray[i - 1];
   //     newFibonacciArray.push(
   //       fibonacciArray[0],
@@ -305,14 +308,14 @@ function getSumToN(n) {
  *   202 => 4  // (2+0+2)
  *   5   => 5  // 5
  */
-function getSumOfDigits(/* num */) {
-  // const string = '' + num;
-  // let sum = 0;
-  // for (let i = 0; i < string.length; i + 1) {
-  //   sum += string[i];
-  // }
-  // return sum;
-  throw new Error('Not implemented');
+function getSumOfDigits(num) {
+  let sum = 0;
+  let n = num;
+  while (n > 0) {
+    sum += n % 10;
+    n = Math.floor(n / 10);
+  }
+  return sum;
 }
 
 /**
@@ -633,8 +636,8 @@ function getHypotenuse(a, b) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  return Math.ceil(Math.abs(number) / 2);
 }
 
 module.exports = {
